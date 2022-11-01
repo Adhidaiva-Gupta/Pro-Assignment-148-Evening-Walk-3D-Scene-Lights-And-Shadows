@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Evening Walk 3D Scene</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+
+    <a-camera position="0 8 15"></a-camera>
+
+    <!-------------------------------------------Asset Management / Loading Assets------------------------------------------->
+    <a-assets timeout="10000">
+      <a-asset-item id="bench" src="./assets/bench/scene.gltf"></a-asset-item>
+      <a-asset-item id="cat" src="./assets/cat/scene.gltf"></a-asset-item>
+      <a-asset-item id="girl" src="./assets/girl/scene.gltf"></a-asset-item>
+      <a-asset-item id="lamp" src="./assets/lamp/scene.gltf"></a-asset-item>
+      <a-asset-item  id="street" src="./assets/street/scene.gltf"></a-asset-item>
+      <!-- <a-asset-item id="street_lamp" src="./assets/streetLamp/scene.gltf"></a-asset-item> -->
+    </a-assets>
+
+    <a-sky></a-sky>
+
+    <!--BG Scene-->
+    <a-box
+    id="background-scene"
+    src="./assets/background.jpg"
+    position="0 10 -100"
+    width="200"
+    height="200"
+    ></a-box>
+
+    <!---------------------------------------------GLTF Models--------------------------------------------------------->
+
+    <!--Street-->
+    <a-entity shadow="receive:true">
+      <a-entity
+      scale="0.02 0.04 0.032"
+          gltf-model="#street"
+          position="0 -3.4 -1"
+          rotation="0 90 0"
+        ></a-entity>
+
+        <a-entity
+          scale="0.02 0.04 0.025"
+          gltf-model="#street"
+          position="0 0 3"
+          rotation="0 90 0"
+        ></a-entity>
+    </a-entity>
+
+    <!--Bench-->
+    <a-entity
+    scale="1.5 1.5 1.5"
+        gltf-model="#bench"
+        position="-2.5 0 3.65"
+        shadow="cast:true;"
+      ></a-entity>
+
+    <!--Street Lamp-->
+    <a-entity
+    scale="0.89 1.25 0.4"
+        gltf-model="#lamp"
+        position="-9 0 4"
+        shadow="cast:true;"
+        
+    ></a-entity>
+
+    <!--Cat-->
+    <a-entity
+    scale="0.03 0.03 0.03"
+        gltf-model="assets/cat/scene.gltf"
+        position="3.3947 1.62993 2.9347"
+        rotation="0 60 0"
+        shadow="cast:true;"
+    ></a-entity>
+
+    <!--Girl-->
+    <a-entity
+    
+        gltf-model="#girl"
+        position="-1.4 3.2 4"
+        shadow="cast:true;"
+    ></a-entity>
+
+    <!--Lights in the Scene-->
+    <a-entity light="type: ambient;"> </a-entity>
+  </a-scene>
+</body>
+
+</html>
